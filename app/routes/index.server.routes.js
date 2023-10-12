@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home Page' });
+  res.render('index', { message: 'Welcome to the Marketplace application.' });
 });
 
 module.exports = router;
