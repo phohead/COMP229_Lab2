@@ -2,11 +2,21 @@ const Product = require('./product.model');
 
 // GET: Get all Products
 exports.getAllProducts = (req, res) => {
-  Product.find()
-    .then((products) => res.json(products))
-    .catch((err) => res.status(500).send(err));
+    Product.find()
+        .then((products) => {
+            if (products.length === 0) {
+                console.log('No products found.');
+            } else {
+                console.log('Found products:', products);
+            }
+            res.json(products);
+        })
+        .catch((err) => {
+            console.error('Error while fetching products:', err);
+            res.status(500).send(err);
+        });
 };
-
+    
 // GET: Get Product by id
 exports.getProductById = (req, res) => {
     const productId = req.params.id; 
