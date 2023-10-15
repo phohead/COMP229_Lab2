@@ -2,7 +2,7 @@
 File Name: COMP229_Lab2
 Student Name: Wilson Yang
 Student Numb: 301195179
-Date: October 11, 2023
+Date: October 15, 2023
 */
 
 var express = require('express');

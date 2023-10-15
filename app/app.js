@@ -2,7 +2,7 @@
 File Name: COMP229_Lab2
 Student Name: Wilson Yang
 Student Numb: 301195179
-Date: October 11, 2023
+Date: October 15, 2023
 */
 
 var createError = require('http-errors');
@@ -14,7 +14,7 @@ const cors = require('cors');
 var mongoose = require("mongoose")
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://wyang72:G6xr96ky@cluster0.lydchyu.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://wyang72:G6xr96ky@cluster0.lydchyu.mongodb.net/Marketplace?retryWrites=true&w=majority";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -24,6 +24,8 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
+
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 async function run() {
   try {

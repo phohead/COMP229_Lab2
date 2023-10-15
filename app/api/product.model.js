@@ -1,3 +1,10 @@
+/*
+File Name: COMP229_Lab2
+Student Name: Wilson Yang
+Student Numb: 301195179
+Date: October 15, 2023
+*/
+
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({

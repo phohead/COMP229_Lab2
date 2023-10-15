@@ -1,13 +1,20 @@
+/*
+File Name: COMP229_Lab2
+Student Name: Wilson Yang
+Student Numb: 301195179
+Date: October 15, 2023
+*/
+
 const express = require('express');
 const router = express.Router();
 const controller = require('./product.controller'); 
 
-router.get('/', controller.getAllProducts); // Get all products
-router.get('/:id', controller.getProductById); // Get product by ID
-router.post('/', controller.addProduct); // Add new product
-router.put('/:id', controller.updateProduct); // Update product by ID
-router.delete('/:id', controller.deleteProduct); // Delete product by ID
-router.delete('/', controller.deleteAllProducts); // Delete all products
-router.get('/search', controller.findProductsByName); // Find products by name
+router.get('/', controller.getAllProducts); 
+router.get('/:id', controller.getProductById); 
+router.post('/', controller.addProduct); 
+router.put('/:id', controller.updateProduct); 
+router.delete('/:id', controller.deleteProduct); 
+router.delete('/', controller.deleteAllProducts); 
+router.get('/', controller.findProductsByName); 
 
 module.exports = router;

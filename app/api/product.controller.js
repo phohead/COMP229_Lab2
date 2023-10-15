@@ -1,20 +1,18 @@
+/*
+File Name: COMP229_Lab2
+Student Name: Wilson Yang
+Student Numb: 301195179
+Date: October 15, 2023
+*/
+
 const Product = require('./product.model'); 
 
 // GET: Get all Products
 exports.getAllProducts = (req, res) => {
     Product.find()
         .then((products) => {
-            if (products.length === 0) {
-                console.log('No products found.');
-            } else {
-                console.log('Found products:', products);
-            }
             res.json(products);
         })
-        .catch((err) => {
-            console.error('Error while fetching products:', err);
-            res.status(500).send(err);
-        });
 };
     
 // GET: Get Product by id
@@ -23,14 +21,8 @@ exports.getProductById = (req, res) => {
   
     Product.findById(productId)
       .then((product) => {
-        if (!product) {
-          return res.status(404).json({ message: 'Product not found' });
-        }
         res.json(product);
       })
-      .catch((err) => {
-        res.status(500).send(err);
-      });
   };
 
 // POST: Add new Product
@@ -47,14 +39,8 @@ exports.updateProduct = (req, res) => {
 
     Product.findByIdAndUpdate(productId, req.body, { new: true })
       .then((product) => {
-      if (!product) {
-          return res.status(404).json({ message: 'Product not found' });
-      }
-      res.json(product);
+        res.json(product);
       })
-      .catch((err) => {
-      res.status(500).send(err);
-      });
 };
 
 // DELETE: Remove Product by id
@@ -63,14 +49,8 @@ exports.deleteProduct = (req, res) => {
 
     Product.findByIdAndRemove(productId)
         .then((product) => {
-        if (!product) {
-            return res.status(404).json({ message: 'Product not found' });
-        }
-        res.json({ message: 'Product deleted' });
+          res.json({ message: 'Product deleted' });
         })
-        .catch((err) => {
-        res.status(500).send(err);
-        });
 };
 
 // DELETE: Remove all Products
@@ -79,21 +59,14 @@ exports.deleteAllProducts = (req, res) => {
       .then(() => {
         res.json({ message: 'All products deleted' });
       })
-      .catch((err) => {
-        res.status(500).send(err);
-      });
-  };
+};
   
 // GET: Find all Products by name  
 exports.findProductsByName = (req, res) => {
     const kw = req.query.name; 
-
-    Product.find({ name: { $regex: kw, $options: 'i' } })
+    Product.find({ kw: {$regex: "kw", $options: 'i' }})
         .then((products) => {
-        res.json(products);
+          res.json(products);
         })
-        .catch((err) => {
-        res.status(500).send(err);
-        });
 };
-  
+
