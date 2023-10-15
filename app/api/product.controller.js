@@ -35,42 +35,42 @@ exports.getProductById = (req, res) => {
 
 // POST: Add new Product
 exports.addProduct = (req, res) => {
-  const product = new Product(req.body);
-  product.save()
-    .then((product) => res.json(product))
-    .catch((err) => res.status(500).send(err));
+    const product = new Product(req.body);
+    product.save()
+      .then((product) => res.json(product))
+      .catch((err) => res.status(500).send(err));
 };
 
 // PUT: Update Product by id
 exports.updateProduct = (req, res) => {
-const productId = req.params.id; 
+    const productId = req.params.id; 
 
-Product.findByIdAndUpdate(productId, req.body, { new: true })
-    .then((product) => {
-    if (!product) {
-        return res.status(404).json({ message: 'Product not found' });
-    }
-    res.json(product);
-    })
-    .catch((err) => {
-    res.status(500).send(err);
-    });
+    Product.findByIdAndUpdate(productId, req.body, { new: true })
+      .then((product) => {
+      if (!product) {
+          return res.status(404).json({ message: 'Product not found' });
+      }
+      res.json(product);
+      })
+      .catch((err) => {
+      res.status(500).send(err);
+      });
 };
 
 // DELETE: Remove Product by id
 exports.deleteProduct = (req, res) => {
-const productId = req.params.id; 
+    const productId = req.params.id; 
 
-Product.findByIdAndRemove(productId)
-    .then((product) => {
-    if (!product) {
-        return res.status(404).json({ message: 'Product not found' });
-    }
-    res.json({ message: 'Product deleted' });
-    })
-    .catch((err) => {
-    res.status(500).send(err);
-    });
+    Product.findByIdAndRemove(productId)
+        .then((product) => {
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+        res.json({ message: 'Product deleted' });
+        })
+        .catch((err) => {
+        res.status(500).send(err);
+        });
 };
 
 // DELETE: Remove all Products
@@ -86,14 +86,14 @@ exports.deleteAllProducts = (req, res) => {
   
 // GET: Find all Products by name  
 exports.findProductsByName = (req, res) => {
-const kw = req.query.name; 
+    const kw = req.query.name; 
 
-Product.find({ name: { $regex: kw, $options: 'i' } })
-    .then((products) => {
-    res.json(products);
-    })
-    .catch((err) => {
-    res.status(500).send(err);
-    });
+    Product.find({ name: { $regex: kw, $options: 'i' } })
+        .then((products) => {
+        res.json(products);
+        })
+        .catch((err) => {
+        res.status(500).send(err);
+        });
 };
   

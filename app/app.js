@@ -14,8 +14,7 @@ const cors = require('cors');
 var mongoose = require("mongoose")
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-//const uri = "mongodb+srv://wyang72:yLXqGWhfjp6BZufT@cluster0.lydchyu.mongodb.net/?retryWrites=true&w=majority";
-const uri = "mongodb+srv://wyang72-2:5WutioTGUowZRmq9@cluster0.lydchyu.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://wyang72:G6xr96ky@cluster0.lydchyu.mongodb.net/?retryWrites=true&w=majority";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
