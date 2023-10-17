@@ -49,7 +49,7 @@ exports.deleteProduct = (req, res) => {
 
     Product.findByIdAndRemove(productId)
         .then((product) => {
-          res.json({ message: 'Product deleted' });
+          res.json({ message: 'Product deleted.' });
         })
 };
 
@@ -57,7 +57,7 @@ exports.deleteProduct = (req, res) => {
 exports.deleteAllProducts = (req, res) => {
     Product.deleteMany({})
       .then(() => {
-        res.json({ message: 'All products deleted' });
+        res.json({ message: 'All products deleted.' });
       })
 };
   

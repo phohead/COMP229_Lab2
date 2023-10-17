@@ -16,7 +16,6 @@ var mongoose = require("mongoose")
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://wyang72:G6xr96ky@cluster0.lydchyu.mongodb.net/Marketplace?retryWrites=true&w=majority";
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -51,7 +50,6 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-//app.use('/', require('../app/routes/index.server.routes.js'));
 
 app.use(cors());
 app.use(logger('dev'));
